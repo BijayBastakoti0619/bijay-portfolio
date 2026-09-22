@@ -1,0 +1,267 @@
+<div class="page-shell">
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+  <div class="noise"></div>
+
+  <header class="topbar" [class.scrolled]="scrolled()">
+    <a class="brand" href="#home" (click)="closeMenu()" aria-label="Bijay Bastakoti home">
+      <span class="brand-mark">BB</span>
+      <span class="brand-text">Bijay Bastakoti</span>
+    </a>
+
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#research">Research</a>
+      <a href="#skills">Skills</a>
+    </nav>
+
+    <a class="nav-cta" href="Bijay_Bastakoti_Resume.pdf" target="_blank" rel="noopener">Résumé <span>↗</span></a>
+
+    <button class="menu-button" type="button" (click)="toggleMenu()" [attr.aria-expanded]="menuOpen()" aria-label="Toggle navigation">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  @if (menuOpen()) {
+    <div class="mobile-menu">
+      <a href="#about" (click)="closeMenu()">About</a>
+      <a href="#experience" (click)="closeMenu()">Experience</a>
+      <a href="#projects" (click)="closeMenu()">Projects</a>
+      <a href="#research" (click)="closeMenu()">Research</a>
+      <a href="#skills" (click)="closeMenu()">Skills</a>
+      <a href="#contact" (click)="closeMenu()">Contact</a>
+      <a class="mobile-resume" href="Bijay_Bastakoti_Resume.pdf" target="_blank" rel="noopener">Download résumé ↗</a>
+    </div>
+  }
+
+  <main>
+    <section id="home" class="hero section">
+      <div class="hero-copy reveal is-visible">
+        <div class="availability"><span></span> Open to software engineering opportunities</div>
+        <p class="eyebrow">Senior Java / Full-Stack Software Engineer · AI-Integrated Systems</p>
+        <h1>I build scalable backend systems and <span>AI-powered software.</span></h1>
+        <p class="hero-description">
+          6+ years building secure enterprise applications with Java, Spring Boot, microservices, Kafka, Angular, cloud infrastructure, and modern AI/ML workflows.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#projects">Explore my work <span>↓</span></a>
+          <a class="button button-secondary" href="https://github.com/BijayBastakoti0619" target="_blank" rel="noopener">GitHub <span>↗</span></a>
+        </div>
+        <div class="hero-socials">
+          <a href="mailto:bijaybastakoti111@gmail.com">bijaybastakoti111@gmail.com</a>
+          <span>•</span>
+          <span>Arlington, Texas</span>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal is-visible" aria-hidden="true">
+        <div class="code-window">
+          <div class="window-bar"><span></span><span></span><span></span><p>Engineer.java</p></div>
+          <div class="code-body">
+            <div><span class="line-no">01</span><span class="kw">public final class</span> <span class="type">Engineer</span> &#123;</div>
+            <div><span class="line-no">02</span>&nbsp;&nbsp;<span class="kw">private final</span> String focus = <span class="str">"reliable systems"</span>;</div>
+            <div><span class="line-no">03</span>&nbsp;</div>
+            <div><span class="line-no">04</span>&nbsp;&nbsp;<span class="type">Stack</span> stack = <span class="kw">new</span> Stack(</div>
+            <div><span class="line-no">05</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="str">"Spring Boot"</span>, <span class="str">"Angular"</span>,</div>
+            <div><span class="line-no">06</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="str">"Kafka"</span>, <span class="str">"AWS"</span>, <span class="str">"AI/ML"</span></div>
+            <div><span class="line-no">07</span>&nbsp;&nbsp;);</div>
+            <div><span class="line-no">08</span>&#125;</div>
+          </div>
+        </div>
+        <div class="floating-card card-one"><span>API latency</span><strong>~25% faster</strong></div>
+        <div class="floating-card card-two"><span>Kafka scale</span><strong>100K+ msg/day</strong></div>
+        <div class="floating-card card-three"><span>Experience</span><strong>6+ years</strong></div>
+      </div>
+    </section>
+
+    <section id="about" class="section about-section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">01 · About</p>
+        <h2>Engineering depth with an AI-forward mindset.</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-copy reveal">
+          <p class="lead">I’m a software engineer who enjoys turning complex requirements into systems that are secure, observable, maintainable, and ready to scale.</p>
+          <p>My core strength is Java and Spring Boot backend engineering, complemented by full-stack Angular experience and hands-on AI/ML work. I’ve built microservices, event-driven integrations, financial workflows, secure authentication systems, cloud deployments, and model-backed application features.</p>
+          <p>What interests me most now is the intersection of strong software engineering and intelligent systems: taking AI beyond a notebook and integrating it into useful, reliable products.</p>
+        </div>
+        <div class="about-stats reveal">
+          <article><strong>6+</strong><span>Years in software engineering</span></article>
+          <article><strong>100K+</strong><span>Kafka messages/day in production workflows</span></article>
+          <article><strong>30+</strong><span>REST APIs delivered in a single enterprise role</span></article>
+          <article><strong>3.8</strong><span>M.S. Computer Science GPA</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">02 · Experience</p>
+        <h2>Production systems, measurable outcomes.</h2>
+        <p>Selected impact from enterprise, financial, full-stack, and AI-integrated engineering roles.</p>
+      </div>
+
+      <div class="timeline">
+        @for (exp of experiences; track exp.company) {
+          <article class="experience-card reveal">
+            <div class="timeline-dot"></div>
+            <div class="experience-meta">
+              <span>{{ exp.period }}</span>
+              <span>{{ exp.location }}</span>
+            </div>
+            <div class="experience-main">
+              <h3>{{ exp.role }}</h3>
+              <p class="company">{{ exp.company }}</p>
+              <p class="experience-summary">{{ exp.summary }}</p>
+              <ul>
+                @for (item of exp.highlights; track item) { <li>{{ item }}</li> }
+              </ul>
+              <div class="tags">
+                @for (item of exp.tech; track item) { <span>{{ item }}</span> }
+              </div>
+            </div>
+          </article>
+        }
+      </div>
+    </section>
+
+    <section id="projects" class="section project-section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">03 · Selected Projects</p>
+        <h2>Built to explain how I think, not just what I use.</h2>
+        <p>Each project demonstrates a different layer of my work: production-style full-stack architecture, efficient NLP, and generative computer vision.</p>
+      </div>
+
+      <div class="projects-grid">
+        @for (project of projects; track project.title) {
+          <article class="project-card reveal" [class.featured]="project.featured">
+            <div class="project-topline">
+              <span>{{ project.eyebrow }}</span>
+              <a [href]="project.github" target="_blank" rel="noopener" [attr.aria-label]="'Open ' + project.title + ' on GitHub'">GitHub ↗</a>
+            </div>
+            <h3>{{ project.title }}</h3>
+            <p class="project-description">{{ project.description }}</p>
+            <p class="project-impact">{{ project.impact }}</p>
+            <div class="project-metrics">
+              @for (metric of project.metrics; track metric.label) {
+                <div><strong>{{ metric.value }}</strong><span>{{ metric.label }}</span></div>
+              }
+            </div>
+            @if (project.featured) {
+              <div class="architecture" aria-label="AI Legal Document Reader architecture">
+                <div><span>Angular</span><small>UI</small></div><i>→</i>
+                <div><span>Spring Boot</span><small>API + Security</small></div><i>→</i>
+                <div class="architecture-stack"><span>PostgreSQL</span><span>PDFBox</span><span>B2 Storage</span></div>
+              </div>
+            }
+            <div class="tags">
+              @for (item of project.tech; track item) { <span>{{ item }}</span> }
+            </div>
+          </article>
+        }
+      </div>
+    </section>
+
+    <section class="section ai-section">
+      <div class="ai-panel reveal">
+        <div>
+          <p class="eyebrow">AI in Software Engineering</p>
+          <h2>Models become useful when the surrounding software is reliable.</h2>
+        </div>
+        <div>
+          <p>I work across the boundary between application engineering and machine learning: model fine-tuning, inference APIs, probability calibration, document intelligence, generative vision, and Spring-based integration.</p>
+          <div class="ai-keywords"><span>LLM integration</span><span>NLP</span><span>BERT</span><span>PyTorch</span><span>Model APIs</span><span>Document AI</span><span>Computer Vision</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="research" class="section research-section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">04 · Research & Publications</p>
+        <h2>Research across AI, healthcare, forecasting, and intelligent systems.</h2>
+        <p>Selected scholarly work. For the full publication list and citation record, see Google Scholar.</p>
+      </div>
+
+      <div class="publication-list">
+        @for (publication of publications; track publication.title) {
+          <a class="publication reveal" [href]="publication.url" target="_blank" rel="noopener">
+            <div class="publication-year">{{ publication.year }}</div>
+            <div>
+              <span class="publication-type">{{ publication.type }}</span>
+              <h3>{{ publication.title }}</h3>
+              <p>{{ publication.venue }}</p>
+            </div>
+            <span class="publication-arrow">↗</span>
+          </a>
+        }
+      </div>
+      <a class="text-link reveal" href="https://scholar.google.com/citations?view_op=list_works&hl=en&user=sV0GhVsAAAAJ" target="_blank" rel="noopener">View complete Google Scholar profile <span>↗</span></a>
+    </section>
+
+    <section id="skills" class="section skills-section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">05 · Technical Toolkit</p>
+        <h2>A backend-first stack with full-stack and ML range.</h2>
+      </div>
+      <div class="skills-grid">
+        @for (group of skillGroups; track group.label) {
+          <article class="skill-group reveal">
+            <h3>{{ group.label }}</h3>
+            <div class="skill-items">
+              @for (skill of group.skills; track skill) { <span>{{ skill }}</span> }
+            </div>
+          </article>
+        }
+      </div>
+    </section>
+
+    <section class="section education-section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">06 · Education & Teaching</p>
+        <h2>Technical foundation plus teaching experience.</h2>
+      </div>
+      <div class="education-grid">
+        <article class="education-card reveal">
+          <span>2024 — 2026</span>
+          <h3>Master of Science in Computer Science</h3>
+          <p>The University of Texas at Arlington</p>
+          <strong>GPA 3.8</strong>
+        </article>
+        <article class="education-card reveal">
+          <span>2016 — 2020</span>
+          <h3>B.Sc. Computer Science & Information Technology</h3>
+          <p>St. Xavier’s College · Tribhuvan University</p>
+        </article>
+        <article class="education-card reveal">
+          <span>2024 — 2026</span>
+          <h3>Graduate Teaching Assistant</h3>
+          <p>The University of Texas at Arlington</p>
+          <small>Information Security · Java · Operating Systems</small>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact-section">
+      <div class="contact-panel reveal">
+        <p class="eyebrow">Let’s Connect</p>
+        <h2>Building something ambitious?</h2>
+        <p>I’m interested in backend, full-stack, platform, and AI-integrated software engineering opportunities where reliable systems and thoughtful engineering matter.</p>
+        <div class="contact-actions">
+          <a class="button button-light" href="mailto:bijaybastakoti111@gmail.com">Email me <span>↗</span></a>
+          <a class="button button-ghost" href="https://www.linkedin.com/in/bijay-bastakoti-51b6b1171/" target="_blank" rel="noopener">LinkedIn <span>↗</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div><span class="brand-mark small">BB</span><span>© {{ year }} Bijay Bastakoti</span></div>
+    <div class="footer-links">
+      <a href="https://github.com/BijayBastakoti0619" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/bijay-bastakoti-51b6b1171/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://scholar.google.com/citations?view_op=list_works&hl=en&user=sV0GhVsAAAAJ" target="_blank" rel="noopener">Scholar</a>
+    </div>
+  </footer>
+</div>
